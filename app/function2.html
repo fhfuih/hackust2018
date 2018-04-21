@@ -27,6 +27,7 @@
     function btnOnClick(element){
       x = document.getElementById("input-box").value;
       setMapLocation(x);
+      $("html,body").animate({ scrollTop: $('#my_map').offset().top }, 1500);
     }
     function setMapLocation(loc) {
       alert('setMapLocation function to be implemented. Now trying to set '+x);
