@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title> Find a parking space </title>
-  
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
 
   <!-- Custom fonts for template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -17,11 +17,27 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
   <!-- Custom styles for this template -->
-    <link href="css/agency.min.css" rel="stylesheet">
+  <link href="css/agency.min.css" rel="stylesheet">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="js/moment.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/bootstrap-datetimepicker.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+  <style>
+    html, body {
+    margin: 0;
+    height: 100%;
+    }
+    #my_map {
+      width: 100%;
+      height:100%;
+      min-height: 100%;
+    }
+  </style>
+
   <script>
     var x = null;
     function btnOnClick(element){
@@ -52,9 +68,6 @@
           <a class="nav-link" href="./index.html#services">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./index.html#about">About</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="./index.html#team">Team</a>
         </li>
         <li class="nav-item">
@@ -73,6 +86,17 @@
           <!-- Search form -->
             <form class="form-group md-form mr-auto">
             <input class="form-control mx-auto w-50" type="text" placeholder="Enter your destination" aria-label="Search" id="input-box">
+            <div class='input-group date mx-auto w-50' id='datetimepicker1'>
+              <input type='text' class="form-control mt-4" placeholder="Choose arrival time"/>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+            <script type="text/javascript">
+              $(function () {
+                $('#datetimepicker1').datetimepicker();
+              });
+            </script>
             <button class="btn btn-primary btn-xl text-uppercase mt-4 js-scroll-trigger" href="#my_map" type="button" id="btn-submit" onClick="btnOnClick();">Check parking lots</button>
             </form>
         </div>
@@ -117,9 +141,9 @@
       </div>
     </section>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkQi9X_awub5z93n1QALDq07yVI70DA0g&libraries=visualization&callback=initMap">
+    </script>
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
