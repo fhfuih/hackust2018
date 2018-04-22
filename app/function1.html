@@ -26,14 +26,12 @@
   html, body {
     margin: 0;
     height: 100%;
-    overflow: hidden;
   }
   #my_map {
       width: 100%;
       height:100%;
       min-height: 100%;
-      z-index: -1;
-       }
+      }
   .my_btn{
     position:fixed;
     right: 4%;
@@ -59,9 +57,6 @@
           <a class="nav-link" href="./index.html#services">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./index.html#about">About</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="./index.html#team">Team</a>
         </li>
         <li class="nav-item">
@@ -73,14 +68,24 @@
   </nav>
 
   <!-- Map API -->
-    <a class="my_btn btn btn-primary btn-xl text-uppercase" style="top: 15%;">Add Preference</a>
     <section id="my_map">
     </section>
+
     <script>
+      function setPosition(position){
+      var hkust = {lat: position.coords.latitude, lng: position.coords.longitude};}
+    </script>
+    <script>
+      var hkust = {lat: 22.3364, lng: 114.2655};
       function initMap(){
-        var hkust = {lat: 22.3364, lng: 114.2655};
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(setPosition);
+        }
+        setTimeout(defineMap, 3000);
+      }
+      function defineMap(){
         var map = new google.maps.Map(document.getElementById("my_map"), {
-          zoom: 12,
+          zoom: 14,
           center: hkust
         });
         var marker = new google.maps.Marker({
@@ -91,6 +96,8 @@
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkQi9X_awub5z93n1QALDq07yVI70DA0g&callback=initMap">
     </script>
+
+    <a class="my_btn btn btn-primary btn-xl text-uppercase" style="top: 15%;">Add Preference</a>
   
 
     <!-- Bootstrap core JavaScript -->
