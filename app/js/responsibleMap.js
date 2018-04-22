@@ -68,16 +68,16 @@
     addressString=parkingLotsAddress[index];
     vacancyString=parkingLotsVacancy[index];
     contentString  =
-    "<div id='name'>"+
-    nameString+
-    "</div>"+
-    "<div id='address'>"+
+    "<div id='graph' style='background-image:url(http://www.misucell.com/data/out/8/IMG_245734.png)'>"+
+    "<b id='name' style='font-size:30px;color:#c1c0ce' >"+
+   nameString+
+    "</b>"+
+    "<div id='address' style='font-size:20px;color:#c1c0ce'>"+
     addressString+
     "</div>"+
-    "<div id='vacancy'>"+
+    "<div id='vacancy' style='font-size:20px;color:#2ced3e'>"+
     vacancyString+
     "</div>"+
-    "<div id='graph' style='background-image:url(http://bpic.588ku.com/element_origin_min_pic/16/06/23/14576b7eb3c466b.jpg)'>"+
     "</div>";
      infowindow.setContent(contentString);
      infowindow.open(my_map, parkingLots[index]);
