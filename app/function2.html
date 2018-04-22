@@ -73,7 +73,6 @@
       $("html,body").animate({ scrollTop: $('#my_map').offset().top }, 1500);
     }
     function setMapLocation(loc) {
-      alert('setMapLocation function to be implemented. Now trying to set '+x);
     }
     
   </script>
@@ -149,8 +148,8 @@
         var map;
         function initMap(){
           my_map = new google.maps.Map(document.getElementById('my_map'), {
-          zoom: 13,
-          center: new google.maps.LatLng(22.3364, 114.2655),
+          zoom: 15,
+          center: new google.maps.LatLng(22.34117, 114.20107),
           styles: [
   {
     "elementType": "geometry",
@@ -366,6 +365,10 @@
   }
 ]
         });
+  var me_marker = new google.maps.Marker({
+    position: new google.maps.LatLng(22.34117, 114.20107),
+    map: my_map
+  });
 
         var script = document.createElement('script');
 
