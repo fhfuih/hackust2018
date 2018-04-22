@@ -25,7 +25,10 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="js/bootstrap-datetimepicker.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" integrity="sha256-JDBcnYeV19J14isGd3EtnsCQK05d8PczJ5+fvEvBJvI=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js" integrity="sha256-tW5LzEC7QjhG0CiAvxlseMTs2qJS7u3DRPauDjFJ3zo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css" integrity="sha256-zV9aQFg2u+n7xs0FTQEhY0zGHSFlwgIu7pivQiwJ38E=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js" integrity="sha256-xoE/2szqaiaaZh7goVyF5p9C/qBu9dM3V5utrQaiJMc=" crossorigin="anonymous"></script>
   <style>
     html, body {
     margin: 0;
@@ -35,6 +38,30 @@
       width: 100%;
       height:100%;
       min-height: 100%;
+    }
+    #datetime .date {
+      width: 25%;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: .25rem;
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    #datetime .time {
+      width: 20%;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: .25rem;
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     }
   </style>
 
@@ -48,6 +75,7 @@
     function setMapLocation(loc) {
       alert('setMapLocation function to be implemented. Now trying to set '+x);
     }
+    
   </script>
 </head>
 
@@ -85,8 +113,8 @@
           <div class="intro-lead-in">Check future parking availability </div>
           <!-- Search form -->
             <form class="form-group md-form mr-auto">
-            <input class="form-control mx-auto w-50" type="text" placeholder="Enter your destination" aria-label="Search" id="input-box">
-            <div class='input-group date mx-auto w-50' id='datetimepicker1'>
+            <input class="form-control mx-auto w-75" type="text" placeholder="Enter your destination" aria-label="Search" id="input-box">
+            <!-- <div class='input-group date mx-auto w-50' id='datetimepicker1'>
               <input type='text' class="form-control mt-4" placeholder="Choose arrival time"/>
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
@@ -96,9 +124,24 @@
               $(function () {
                 $('#datetimepicker1').datetimepicker();
               });
-            </script>
+            </script> -->
+            <div id="datetime" class="d-flex justify-content-between mx-auto my-2 w-75">
+              <label for="date" class="mr-auto ml-2">Choose arrival time</label>
+              <input type="text" class="date mx-1" />
+              <input type="text" class="time ml-1" />
+            </div>
             <button class="btn btn-primary btn-xl text-uppercase mt-4 js-scroll-trigger" href="#my_map" type="button" id="btn-submit" onClick="btnOnClick();">Check parking lots</button>
             </form>
+
+            <script>
+              $('#datetime .date').datepicker({
+                'format': 'd/m/yyyy',
+                'autoclose': true
+              });
+              $('#datetime .time').timepicker({
+                'timeFormat': 'g:ia'
+              });
+            </script>
         </div>
       </div>
     </header>
