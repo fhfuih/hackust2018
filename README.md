@@ -1,12 +1,12 @@
 # info
 ## 分工
-hzy/cxh：网页框架
+网页框架
   
-xmy：S3
+S3
 
-zl：Google map api
+Google map api
  
-ymy：presentation/business
+presentation/business
 
 ## Idea
 起始页（代替ppt）
